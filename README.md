@@ -1,0 +1,1 @@
+This repository is to hold the code for my personal Unity project, temporarily titled Caster Tower. The end result will hopefully be a 2D platformer with roguelite aspects where a massive array of spells may be used by the player as well as a bunch of unique items leading to a creative, evolving and easily replayable form of gameplay.
