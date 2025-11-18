@@ -3,20 +3,26 @@ using UnityEngine;
 public class PlayerAnimation : MonoBehaviour
 {
     private Animator animator;
-    private PlayerJump playerJump;
-    private PlayerMovement playerMovement;
+    public enum PlayerState { Idle, Running, Jumping, Falling, Dashing, Casting }
+    public PlayerState currentState;
+    private PlayerState pastState;
+
     void Start()
     {
         animator = GetComponent<Animator>();
-        playerJump = GetComponent<PlayerJump>();
-        playerMovement = GetComponent<PlayerMovement>();
+        pastState = currentState;
     }
+
     void Update()
     {
-        if (playerJump.isGrounded) animator.SetInteger("Jump", 0);
-        else animator.SetInteger("Jump", Mathf.RoundToInt(playerJump.rb.linearVelocityY));
-        
-        animator.SetBool("Run", playerMovement.moveInput.x != 0);
-        animator.SetBool("Dash", playerMovement.isDashing);
+        if (pastState != currentState)
+        {
+            foreach (AnimatorControllerParameter param in animator.parameters)
+            {
+                if (param.type == AnimatorControllerParameterType.Bool)
+                    animator.SetBool(param.name, param.name == currentState.ToString());
+            }
+            pastState = currentState;
+        }
     }
 }
