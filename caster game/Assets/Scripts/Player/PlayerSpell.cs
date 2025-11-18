@@ -1,6 +1,7 @@
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.InputSystem;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerSpell : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class PlayerSpell : MonoBehaviour
     public Transform spellSpawnPoint;
     private int spellIndex;
     private PlayerAnimation playerAnimation;
+    private Coroutine castRoutine;
 
     void Start()
     {
@@ -26,13 +28,22 @@ public class PlayerSpell : MonoBehaviour
             playerAnimation.currentState != PlayerAnimation.PlayerState.Running) return;
         playerAnimation.currentState = PlayerAnimation.PlayerState.Casting;
         spellIndex = index;
-        Invoke(nameof(HandleCastAnimationEnd), 0.245f);
+        if (castRoutine != null)
+            StopCoroutine(castRoutine);
+        castRoutine = StartCoroutine(CastAfterDelay());
+    }
+
+    private IEnumerator CastAfterDelay()
+    {
+        yield return new WaitForSeconds(0.24f);
+        HandleCastAnimationEnd();
     }
 
     private void HandleCastAnimationEnd()
     {
         if (playerAnimation.currentState == PlayerAnimation.PlayerState.Casting) 
             playerAnimation.currentState = PlayerAnimation.PlayerState.Idle;
-        Instantiate(spellList[spellIndex], spellSpawnPoint.position, Quaternion.identity);
+        GameObject spellClone = Instantiate(spellList[spellIndex], spellSpawnPoint.position, Quaternion.identity);
+        spellClone.GetComponent<Spell>().facingIndex = (int)Mathf.Sign(transform.localScale.x);
     }
 }
