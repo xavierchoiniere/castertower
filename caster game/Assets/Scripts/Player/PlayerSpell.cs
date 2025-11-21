@@ -5,8 +5,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerSpell : MonoBehaviour
 {
-    public List<GameObject> spellList;
     public Transform spellSpawnPoint;
+    [SerializeField] private List<GameObject> spellList;
+    private List<float> spellCDList;
     private int spellIndex;
     private PlayerAnimation playerAnimation;
     private Coroutine castRoutine;
@@ -14,6 +15,16 @@ public class PlayerSpell : MonoBehaviour
     void Start()
     {
         playerAnimation = GetComponent<PlayerAnimation>();
+        spellCDList = new List<float>(new float[5]);
+    }
+
+    void Update()
+    {
+        for (int i = 0; i < spellCDList.Count; i++)
+        {
+            if (spellCDList[i] > 0) spellCDList[i] -= Time.deltaTime;
+            if (spellCDList[i] <= 0) spellCDList[i] = 0;
+        }
     }
 
     public void OnSpell1() => StartCastAnimation(0);
@@ -24,8 +35,11 @@ public class PlayerSpell : MonoBehaviour
 
     private void StartCastAnimation(int index)
     {
+        if (spellCDList[index] > 0) return;
+        if (index >= spellList.Count) return;
         if (playerAnimation.currentState != PlayerAnimation.PlayerState.Idle && 
             playerAnimation.currentState != PlayerAnimation.PlayerState.Running) return;
+
         playerAnimation.currentState = PlayerAnimation.PlayerState.Casting;
         spellIndex = index;
         if (castRoutine != null)
@@ -35,12 +49,13 @@ public class PlayerSpell : MonoBehaviour
 
     private IEnumerator CastAfterDelay()
     {
-        yield return new WaitForSeconds(0.24f);
+        yield return new WaitForSeconds(0.2f);
         HandleCastAnimationEnd();
     }
 
     private void HandleCastAnimationEnd()
     {
+        spellCDList[spellIndex] = spellList[spellIndex].GetComponent<Spell>().cooldown;
         if (playerAnimation.currentState == PlayerAnimation.PlayerState.Casting) 
             playerAnimation.currentState = PlayerAnimation.PlayerState.Idle;
         GameObject spellClone = Instantiate(spellList[spellIndex], spellSpawnPoint.position, Quaternion.identity);

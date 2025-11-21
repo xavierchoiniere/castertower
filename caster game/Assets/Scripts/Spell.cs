@@ -4,6 +4,7 @@ public class Spell : MonoBehaviour
 {
     public float speed;
     public float lifeTime;
+    public float cooldown;
     public int facingIndex;
     private Rigidbody2D rb;
 
