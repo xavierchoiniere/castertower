@@ -26,7 +26,8 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
-        if (playerAnimation.currentState != PlayerAnimation.PlayerState.Dashing) rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocityY);
+        if (playerAnimation.currentState == PlayerAnimation.PlayerState.Casting) rb.linearVelocityX = 0;
+        else if (playerAnimation.currentState != PlayerAnimation.PlayerState.Dashing) rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocityY);
         else
         {
             rb.linearVelocity = new Vector2(dashInput.x * (moveSpeed + dashMod), 0);

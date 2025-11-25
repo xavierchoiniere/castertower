@@ -1004,9 +1004,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b228024da55a6474eaef86fe32a0d0d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSpell
+  spellSpawnPoint: {fileID: 2124040213}
   spellList:
   - {fileID: 3550486166738185649, guid: 37b77d8f133c4934f9788402da24bde9, type: 3}
-  spellSpawnPoint: {fileID: 2124040213}
+  - {fileID: 3259382812402039945, guid: fbbe09e14b4bdc143b363c09e310f0b4, type: 3}
 --- !u!1 &2124040212
 GameObject:
   m_ObjectHideFlags: 0
