@@ -17,6 +17,30 @@ TextureImporter:
   - first:
       213: 816149190415099021
     second: rock throw cast_4
+  - first:
+      213: 2205204014179560272
+    second: rock throw cast_5
+  - first:
+      213: 3477628468687966635
+    second: rock throw cast_6
+  - first:
+      213: 7605758937420579774
+    second: rock throw cast_7
+  - first:
+      213: -56787804404059748
+    second: rock throw cast_8
+  - first:
+      213: 928672551827650625
+    second: rock throw cast_9
+  - first:
+      213: 2718713282286957005
+    second: rock throw cast_10
+  - first:
+      213: -5412135991833724278
+    second: rock throw cast_11
+  - first:
+      213: 3918258126649191809
+    second: rock throw cast_12
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -58,7 +82,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -86,8 +110,8 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
-    textureCompression: 1
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -115,12 +139,12 @@ TextureImporter:
       name: rock throw cast_0
       rect:
         serializedVersion: 2
-        x: 2
+        x: 0
         y: 0
-        width: 24
-        height: 8
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -137,12 +161,12 @@ TextureImporter:
       name: rock throw cast_1
       rect:
         serializedVersion: 2
-        x: 25
+        x: 16
         y: 0
-        width: 24
-        height: 9
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -159,12 +183,12 @@ TextureImporter:
       name: rock throw cast_2
       rect:
         serializedVersion: 2
-        x: 47
+        x: 32
         y: 0
-        width: 34
-        height: 11
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -181,12 +205,12 @@ TextureImporter:
       name: rock throw cast_3
       rect:
         serializedVersion: 2
-        x: 80
+        x: 48
         y: 0
-        width: 33
-        height: 14
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -199,33 +223,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: rock throw cast_4
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 1
-        width: 16
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d842a625d5b835b00800000000000000
-      internalID: 816149190415099021
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 31fe29b8e13a624408a2a973f9a6031c
     internalID: 0
     vertices: []
     indices: 
@@ -233,13 +235,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       rock throw cast_0: -168875408346300417
       rock throw cast_1: 5414546019843434895
       rock throw cast_2: -6099321984804389903
       rock throw cast_3: 3723934190880037074
-      rock throw cast_4: 816149190415099021
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

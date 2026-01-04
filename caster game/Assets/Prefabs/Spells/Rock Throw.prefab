@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 816095168856703552}
   - component: {fileID: 8181044183169739749}
   - component: {fileID: 2485242708999342138}
-  - component: {fileID: 7145902798188056530}
+  - component: {fileID: 3927829821635780962}
   m_Layer: 0
-  m_Name: Flamebolt
+  m_Name: Rock Throw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.75, y: 1.75, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6486228599029851101}
@@ -74,12 +74,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5901444d085f60344ba1eec451314838, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spell
-  speed: 10
-  lifeTime: 3
-  cooldown: 1
-  startUpTime: 0.2
+  speed: 15
+  chargeSpeed: 0
+  chargeTime: 0.5
+  lifeTime: 5
+  cooldown: 3
   facingIndex: 0
---- !u!95 &7145902798188056530
+--- !u!95 &3927829821635780962
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -89,7 +90,7 @@ Animator:
   m_GameObject: {fileID: 3550486166738185649}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 524dee66dc6a66f44a9ba308708ed6b9, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4d976369741a196499ccf9ab93684f06, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -128,7 +129,7 @@ Transform:
   m_GameObject: {fileID: 4211560657750720759}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.25, y: 0, z: 0}
+  m_LocalPosition: {x: 0.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -181,7 +182,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 22918bc2d402e834990ce43089cbb7ef, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 695638b92939c464896d1b0112b34e13, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -236,5 +237,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 0.5}
+  m_Size: {x: 0.0001, y: 0.8}
   m_EdgeRadius: 0

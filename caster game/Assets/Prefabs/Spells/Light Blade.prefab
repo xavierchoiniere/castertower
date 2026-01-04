@@ -213,8 +213,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Spell
   speed: 15
   lifeTime: 3
-  cooldown: 1.5
+  cooldown: 2
   facingIndex: 0
+  startUpTime: 0.2
 --- !u!95 &2414798934838428830
 Animator:
   serializedVersion: 7

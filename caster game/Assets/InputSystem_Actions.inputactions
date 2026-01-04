@@ -256,6 +256,17 @@
                 },
                 {
                     "name": "",
+                    "id": "dca8de64-1db8-470f-b365-82cac1868a4c",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "e821fde4-9146-4db1-9cbe-cccfebf9eb66",
                     "path": "<Keyboard>/q",
                     "interactions": "",
