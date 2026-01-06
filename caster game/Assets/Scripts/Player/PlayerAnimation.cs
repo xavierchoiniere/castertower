@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerAnimation : MonoBehaviour
 {
     private Animator animator;
-    public enum PlayerState { Idle, Running, Jumping, Falling, Dashing, Casting }
+    public enum PlayerState { Idle, Running, Jumping, Falling, Dashing, Casting, HoldCasting }
     public PlayerState currentState;
     private PlayerState pastState;
 

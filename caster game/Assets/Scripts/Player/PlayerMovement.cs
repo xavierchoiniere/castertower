@@ -26,7 +26,8 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
-        if (playerAnimation.currentState == PlayerAnimation.PlayerState.Casting) rb.linearVelocityX = 0;
+        if (playerAnimation.currentState == PlayerAnimation.PlayerState.Casting || 
+            playerAnimation.currentState == PlayerAnimation.PlayerState.HoldCasting) rb.linearVelocityX = 0;
         else if (playerAnimation.currentState != PlayerAnimation.PlayerState.Dashing) rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocityY);
         else
         {
@@ -42,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
         else dashCDTimer = 0;
         if (moveInput.x != 0 && playerAnimation.currentState == PlayerAnimation.PlayerState.Idle) playerAnimation.currentState = PlayerAnimation.PlayerState.Running;
         if (moveInput.x == 0 && playerAnimation.currentState == PlayerAnimation.PlayerState.Running) playerAnimation.currentState = PlayerAnimation.PlayerState.Idle;
-        if (moveInput.x < 0)
+        if (moveInput.x < 0 && playerAnimation.currentState != PlayerAnimation.PlayerState.HoldCasting)
         {
             transform.localScale = new Vector3(-baseScale.x, baseScale.y, baseScale.z);
         }
@@ -58,6 +59,8 @@ public class PlayerMovement : MonoBehaviour
     public void OnSprint(InputValue value)
     {
         if (dashCDTimer != 0 || playerAnimation.currentState == PlayerAnimation.PlayerState.Dashing) return;
+        if (playerAnimation.currentState == PlayerAnimation.PlayerState.Casting ||
+           playerAnimation.currentState == PlayerAnimation.PlayerState.HoldCasting) return;
         playerAnimation.currentState = PlayerAnimation.PlayerState.Dashing;
         dashTimer = dashTime;
         if (moveInput.x != 0) dashInput = moveInput;

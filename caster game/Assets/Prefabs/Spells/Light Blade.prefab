@@ -214,8 +214,8 @@ MonoBehaviour:
   speed: 15
   lifeTime: 3
   cooldown: 2
+  projectileAmount: 1
   facingIndex: 0
-  startUpTime: 0.2
 --- !u!95 &2414798934838428830
 Animator:
   serializedVersion: 7

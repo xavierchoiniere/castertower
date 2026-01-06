@@ -56,9 +56,40 @@ public class PlayerSpell : MonoBehaviour
     private void HandleCastAnimationEnd()
     {
         spellCDList[spellIndex] = spellList[spellIndex].GetComponent<Spell>().cooldown;
-        if (playerAnimation.currentState == PlayerAnimation.PlayerState.Casting) 
-            playerAnimation.currentState = PlayerAnimation.PlayerState.Idle;
-        GameObject spellClone = Instantiate(spellList[spellIndex], spellSpawnPoint.position, Quaternion.identity);
+        if (playerAnimation.currentState == PlayerAnimation.PlayerState.Casting)
+        {
+            if (spellList[spellIndex].GetComponent<Spell>() is MeleeSpell)
+            {
+                playerAnimation.currentState = PlayerAnimation.PlayerState.HoldCasting;
+            }
+            else
+            {
+                playerAnimation.currentState = PlayerAnimation.PlayerState.Idle;
+            }
+        }
+           
+        if (spellList[spellIndex].GetComponent<Spell>().projectileAmount == 1)
+        {
+            SpawnSpell(0f, (int)Mathf.Sign(transform.localScale.x));
+        }
+        else
+        {
+            int amount = spellList[spellIndex].GetComponent<Spell>().projectileAmount;
+            float step = 45f / (amount - 1);
+            float startAngle = -45f / 2f;
+            for (int i = 0; i < amount; i++)
+            {
+                float angleOffset = startAngle + i * step;
+                SpawnSpell(angleOffset, (int)Mathf.Sign(transform.localScale.x));
+            }
+        }
+
+    }
+
+    private void SpawnSpell(float angleOffset, int facing)
+    {
+        Quaternion rotation = Quaternion.Euler(0, 0, angleOffset * facing);
+        GameObject spellClone = Instantiate(spellList[spellIndex], spellSpawnPoint.position, rotation);
         spellClone.GetComponent<Spell>().facingIndex = (int)Mathf.Sign(transform.localScale.x);
     }
 }

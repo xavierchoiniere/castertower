@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 816095168856703552}
   - component: {fileID: 8181044183169739749}
-  - component: {fileID: 2485242708999342138}
-  - component: {fileID: 7145902798188056530}
+  - component: {fileID: 3515848276403492040}
+  - component: {fileID: -5171345724776620361}
   m_Layer: 0
-  m_Name: Flamebolt
+  m_Name: Crackle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6486228599029851101}
@@ -62,7 +62,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &2485242708999342138
+--- !u!114 &3515848276403492040
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -71,15 +71,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 3550486166738185649}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5901444d085f60344ba1eec451314838, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d495a910bcad4b4f9f7524fea30918e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Spell
-  speed: 8
-  lifeTime: 3
-  cooldown: 1
+  m_EditorClassIdentifier: Assembly-CSharp::MeleeSpell
+  speed: 0
+  lifeTime: 0.5
+  cooldown: 3
   projectileAmount: 1
   facingIndex: 0
---- !u!95 &7145902798188056530
+--- !u!95 &-5171345724776620361
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -89,7 +89,7 @@ Animator:
   m_GameObject: {fileID: 3550486166738185649}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 524dee66dc6a66f44a9ba308708ed6b9, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7ff592b870668004e8e183392132616c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -128,7 +128,7 @@ Transform:
   m_GameObject: {fileID: 4211560657750720759}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.25, y: 0, z: 0}
+  m_LocalPosition: {x: 0.4, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -181,7 +181,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 22918bc2d402e834990ce43089cbb7ef, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4057be08ea20926478e2eda5749de0ab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -236,5 +236,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 0.5}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0

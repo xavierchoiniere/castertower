@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 816095168856703552}
   - component: {fileID: 8181044183169739749}
-  - component: {fileID: 2485242708999342138}
+  - component: {fileID: -9000698890574693286}
   - component: {fileID: 3927829821635780962}
   m_Layer: 0
   m_Name: Rock Throw
@@ -62,7 +62,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &2485242708999342138
+--- !u!114 &-9000698890574693286
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -71,15 +71,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 3550486166738185649}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5901444d085f60344ba1eec451314838, type: 3}
+  m_Script: {fileID: 11500000, guid: b95156e9dca75c346b603158dbb98415, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Spell
+  m_EditorClassIdentifier: Assembly-CSharp::ChargeSpell
   speed: 15
-  chargeSpeed: 0
-  chargeTime: 0.5
   lifeTime: 5
   cooldown: 3
+  projectileAmount: 1
   facingIndex: 0
+  chargeSpeed: 0
+  chargeTime: 0.5
 --- !u!95 &3927829821635780962
 Animator:
   serializedVersion: 7

@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 816095168856703552}
   - component: {fileID: 8181044183169739749}
-  - component: {fileID: 2485242708999342138}
-  - component: {fileID: 7145902798188056530}
+  - component: {fileID: 1055931699134659151}
+  - component: {fileID: 3740779343381404607}
   m_Layer: 0
-  m_Name: Flamebolt
+  m_Name: Water Shuriken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,7 +62,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &2485242708999342138
+--- !u!114 &1055931699134659151
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -71,15 +71,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 3550486166738185649}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5901444d085f60344ba1eec451314838, type: 3}
+  m_Script: {fileID: 11500000, guid: b95156e9dca75c346b603158dbb98415, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Spell
-  speed: 8
+  m_EditorClassIdentifier: Assembly-CSharp::ChargeSpell
+  speed: 12
   lifeTime: 3
-  cooldown: 1
-  projectileAmount: 1
+  cooldown: 2
+  projectileAmount: 3
   facingIndex: 0
---- !u!95 &7145902798188056530
+  chargeSpeed: 1
+  chargeTime: 0.5
+--- !u!95 &3740779343381404607
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -89,7 +91,7 @@ Animator:
   m_GameObject: {fileID: 3550486166738185649}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 524dee66dc6a66f44a9ba308708ed6b9, type: 2}
+  m_Controller: {fileID: 9100000, guid: d991f5f47fe6ee747bc8147afcbd14d0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -181,7 +183,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 22918bc2d402e834990ce43089cbb7ef, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2f1f0a5a9c56c064d8ff8cfd6a39ce53, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -236,5 +238,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 0.5}
+  m_Size: {x: 0.8, y: 0.8}
   m_EdgeRadius: 0
