@@ -79,6 +79,7 @@ MonoBehaviour:
   cooldown: 1
   projectileAmount: 1
   facingIndex: 0
+  damage: 2
 --- !u!95 &7145902798188056530
 Animator:
   serializedVersion: 7
