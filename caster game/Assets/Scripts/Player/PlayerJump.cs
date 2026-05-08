@@ -1,3 +1,5 @@
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -17,6 +19,9 @@ public class PlayerJump : MonoBehaviour
     private int currentJumpCharge;
     private PlayerAnimation playerAnimation;
 
+    [SerializeField] private bool isDropping;
+    private float dropTime = 0.15f;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -24,23 +29,25 @@ public class PlayerJump : MonoBehaviour
         currentJumpCharge = maxJumpCharge;
         playerAnimation = GetComponent<PlayerAnimation>();
     }
+
     void Update()
     {
-        isGrounded = Physics2D.OverlapCircle(groundChecker.position, groundCheckRadius, platformLayer);
-        Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("Platform"), rb.linearVelocityY > 0 ||
-            (!isGrounded && rb.linearVelocityY <= 0f && !Physics2D.Raycast(groundChecker.position, Vector2.down, 0.6f, platformLayer)));
-        if (rb.linearVelocityY < 0)
-        {
-            rb.linearVelocity += Vector2.up * Physics2D.gravity.y * fallMul * Time.deltaTime;
-            playerAnimation.currentState = PlayerAnimation.PlayerState.Falling;
-        }
+        if (rb.linearVelocityY < 0) playerAnimation.currentState = PlayerAnimation.PlayerState.Falling;
         if (isGrounded && rb.linearVelocityY == 0)
         {
             if (currentJumpCharge < maxJumpCharge) currentJumpCharge = maxJumpCharge;
             if (playerAnimation.currentState == PlayerAnimation.PlayerState.Falling) 
                 playerAnimation.currentState = PlayerAnimation.PlayerState.Idle;
         }
+    }
 
+    private void FixedUpdate()
+    {
+        isGrounded = Physics2D.OverlapCircle(groundChecker.position, groundCheckRadius, platformLayer);
+        Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("Platform"), rb.linearVelocityY > 0 ||
+            (!isGrounded && rb.linearVelocityY <= 0f && !Physics2D.Raycast(groundChecker.position, Vector2.down, 0.6f, platformLayer)) ||
+            isDropping);
+        if (rb.linearVelocityY < 0) rb.linearVelocity += Vector2.up * Physics2D.gravity.y * fallMul * Time.deltaTime;
     }
 
     public void OnJump(InputValue value)
@@ -51,5 +58,20 @@ public class PlayerJump : MonoBehaviour
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             currentJumpCharge--;
         }
+    }
+
+    public void OnDrop(InputValue value)
+    {
+        if (value.isPressed && 
+            isGrounded && 
+            !Physics2D.OverlapCircle(groundChecker.position, groundCheckRadius, platformLayer).CompareTag("Main Floor")) 
+            StartCoroutine(DropRoutine());
+    }
+
+    private IEnumerator DropRoutine()
+    {
+        isDropping = true;
+        yield return new WaitForSeconds(dropTime);
+        isDropping = false;
     }
 }

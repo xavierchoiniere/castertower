@@ -56,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
     {
         moveInput = value.Get<Vector2>();
     }
-    public void OnSprint(InputValue value)
+    public void OnDash(InputValue value)
     {
         if (dashCDTimer != 0 || playerAnimation.currentState == PlayerAnimation.PlayerState.Dashing) return;
         if (playerAnimation.currentState == PlayerAnimation.PlayerState.Casting ||
